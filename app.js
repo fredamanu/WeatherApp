@@ -22,14 +22,15 @@ app.post("/", function (req, res) {
     "&appid=" +
     key
   https.get(url, function (response) {
-    response.on("data", function (data) {
-      const weatherData = JSON.parse(data)
-      const temp = weatherData.main.temp
-      const description = weatherData.weather[0].description
-      const icon = weatherData.weather[0].icon
-      const iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
-      res.write(
-        `<html> 
+    if (response.statusCode === 200) {
+      response.on("data", function (data) {
+        const weatherData = JSON.parse(data)
+        const temp = weatherData.main.temp
+        const description = weatherData.weather[0].description
+        const icon = weatherData.weather[0].icon
+        const iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+        res.write(
+          `<html> 
         <head>
         <style>
          h2{color: white;
@@ -69,9 +70,13 @@ app.post("/", function (req, res) {
         </div>
         </body>
         </html>`
-      )
+        )
+        res.send()
+      })
+    } else {
+      res.write(`<h1>Location not found</h1>`)
       res.send()
-    })
+    }
   })
 })
 
