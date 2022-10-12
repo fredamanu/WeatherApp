@@ -1,8 +1,10 @@
 # Realtime Weather Application
 
-### [Live Site](https://freda-portfolio.netlify.app/)
+### [Live Site](https://agile-chamber-01505.herokuapp.com/)
 
 ![Weather Application](https://res.cloudinary.com/defgcg7hn/image/upload/v1665505053/apps/Screenshot_2022-10-10_at_23.02.53_fbx88l.png)
+
+![Weather Application](https://res.cloudinary.com/defgcg7hn/image/upload/v1665571138/apps/Screenshot_2022-10-12_at_12.38.25_rrts7w.png)
 
 ## Introduction
 This is a code respository for a realtime weather application. 
